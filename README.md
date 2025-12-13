@@ -3,8 +3,7 @@ Comparador automático de descripciones de productos basado en categorías clave
 
 Funciona en español (ES) e inglés (EN).
 
-Este proyecto utiliza Gradio para ofrecer una interfaz intuitiva que permite comparar dos productos a partir de sus textos descriptivos y generar:
-
+Este proyecto utiliza Gradio para ofrecer una interfaz intuitiva que permite comparar dos o tres productos a partir de sus textos descriptivos y generar:
 - 🏆 Ganador general
 
 - 📊 Ganadores por categoría
@@ -76,7 +75,7 @@ Este proyecto utiliza Gradio para ofrecer una interfaz intuitiva que permite com
   
   - Conteo de victorias
   
-  - Ganador final entre A y B
+  - Ganador final entre A y B( o C opcional)
 
 - 📤 Salidas detalladas
   
@@ -91,6 +90,15 @@ Este proyecto utiliza Gradio para ofrecer una interfaz intuitiva que permite com
   🧩 JSON
   
   Útil para integraciones con otros sistemas.
+
+# 🎨 Sistema de colores
+🟢 Mejor: verde
+
+🔴 Peor: rojo
+
+🟠 Intermedio (cuando hay 3 productos)
+
+⚪ Empate: gris + texto explícito
 # 📄 Licencia
 MIT License
 # Autor
