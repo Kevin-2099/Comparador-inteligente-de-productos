@@ -1,71 +1,183 @@
 # 🧠 Comparador Inteligente de Productos
-Comparador automático de descripciones de productos basado en categorías clave: pantalla, cámara, batería, rendimiento, almacenamiento y conectividad.
 
-Funciona en español (ES) e inglés (EN), con opción de detección automática de idioma.
+Comparador automático de productos basado en procesamiento de lenguaje natural (NLP), diseñado para analizar descripciones de hasta **5 productos** en **español** o **inglés**.
 
-Este proyecto utiliza Gradio para ofrecer una interfaz intuitiva que permite comparar 2 hasta 5 productos a partir de sus textos descriptivos y generar:
+La aplicación identifica categorías relevantes, extrae especificaciones técnicas, analiza el sentimiento del texto y genera comparaciones automáticas con gráficos, ranking ponderado e informes exportables mediante una interfaz desarrollada con **Gradio**.
 
-- 🏆 Ganador general
-- 📊 Ganadores por categoría
-- 🔍 Evidencias textuales por categoría
-- 💬 Análisis de sentimiento (positivo, negativo, neutro)
-- 🧩 Salida en JSON estructurado
+---
+
+# ✨ Características principales
+
+## 🔍 Análisis automático
+
+El sistema procesa automáticamente los textos para:
+
+- Detectar el idioma (Español/Inglés).
+- Dividir el contenido en oraciones.
+- Clasificar las frases por categorías mediante palabras clave.
+- Extraer especificaciones técnicas.
+- Analizar el sentimiento de cada oración.
+- Comparar entre **2 y 5 productos**.
+
+---
+
+## 📌 Categorías soportadas
+
+### Español
+
+- Pantalla
+- Cámara
+- Batería
+- Rendimiento
+- Almacenamiento
+- Conectividad
+- Precio / Calidad
+- Diseño
+- Software
+- Audio
+- Durabilidad
+
+### English
+
+- Screen
+- Camera
+- Battery
+- Performance
+- Storage
+- Connectivity
+- Price / Quality
+- Design
+- Software
+- Audio
+- Durability
+
+---
+
+## 🧮 Sistema inteligente de puntuación
+
+Cada categoría utiliza un sistema de evaluación específico.
+
+### Categorías numéricas
+
+Se extraen automáticamente valores como:
+
+- Tamaño de pantalla
+- Resolución
+- Megapíxeles
+- Capacidad de batería (mAh)
+- Potencia de carga (W)
+- Memoria RAM
+- Almacenamiento
+- Tecnologías de conectividad
+
+Los valores obtenidos se convierten en una puntuación comparable entre productos.
+
+### Categorías cualitativas
+
+Las categorías como:
+
+- Precio / Calidad
+- Diseño
+- Software
+- Audio
+- Durabilidad
+
+se evalúan mediante análisis de sentimiento de las evidencias encontradas.
+
+---
+
+## 💬 Análisis de sentimiento
+
+El comparador clasifica automáticamente cada oración como:
+
+- ✅ Positiva
+- ❌ Negativa
+- ➖ Neutra
+
+Además, detecta negaciones para interpretar correctamente expresiones como:
+
+- "No es rápido"
+- "Not good"
+
+---
+
+## 📊 Comparación inteligente
+
+Para cada categoría el sistema calcula:
+
+- Score obtenido
+- Score normalizado
+- Nivel de confianza
+- Evidencias encontradas
+- Producto ganador
+
+Los empates se detectan mediante un margen de tolerancia, evitando diferencias insignificantes entre puntuaciones.
+
+Los niveles de confianza son:
+
+- 🟢 Alta
+- 🟠 Media
+- 🔴 Baja
+
+---
+
+## 🏆 Resultado final
+
+Tras analizar todas las categorías, la aplicación genera:
+
+- Ganador por categoría
+- Conteo de victorias
+- Resultado general
+- Ranking ponderado configurable
+- Resumen automático en lenguaje natural
+
+---
+
+# 📈 Visualización
+
+La aplicación muestra los resultados mediante:
+
 - 📝 Resumen en Markdown
-- 🧱 Tabla HTML con scores y confianza
-- 📥 Exportación CSV
+- 📋 Tabla HTML
+- 📊 Gráfico Radar
+- 📊 Gráfico de Barras
+- 📦 JSON estructurado
 
-## ✨ Características Principales
-- 🔍 Detección por categorías
+---
 
-  El sistema analiza los textos y clasifica oraciones según palabras clave por idioma.
-  
-  Categorías soportadas:
+# 📂 Entrada de datos
 
-  - ES
-    - Pantalla
-    - Cámara
-    - Batería
-    - Rendimiento
-    - Almacenamiento
-    - Conectividad
-  - EN
-    - Screen
-    - Camera
-    - Battery
-    - Performance
-    - Storage
-    - Connectivity
-- 🧮 Sistema inteligente de puntuación
+Cada producto puede introducirse mediante:
 
-  Cada categoría se evalúa numéricamente según los valores detectados y patrones de texto:
-  
-    - Pantalla: pulgadas + resolución
-    - Batería: mAh y potencia de carga (W)
-    - Rendimiento: CPU, RAM, velocidad de juego
-    - Cámara: MP / sensores
-    - Almacenamiento: GB / TB
-    - Conectividad: 4G, 5G, WiFi, Bluetooth, NFC
-  
-  También calcula confianza de la evidencia por categoría (alta / baja) y gestiona empates explícitos.
+- Texto escrito manualmente.
+- Archivo **TXT**.
+- Archivo **PDF**.
 
-- 🏆 Resultado general
+---
 
-  El comparador determina:
-  
-    - Ganador por categoría
-    - Conteo de victorias
-    - Ganador final entre todos los productos comparados (A, B, C… hasta E)
-- 📤 Salidas detalladas
-  - 📝 Markdown: Resumen legible con evidencias y análisis de sentimiento por oración.
-  - 📊 HTML: Tabla compacta con ganadores, colores y nivel de confianza.
-  - 🧩 JSON: Datos estructurados para integraciones con otros sistemas.
-  - 📥 CSV: Archivo descargable con scores y confianza por categoría.
-- 🎨 Sistema de colores
-  - 🟢 Mejor: verde
-  - 🟠 Intermedio (cuando hay más de 2 productos)
-  - 🔴 Peor: rojo
-  - ⚪ Empate real: gris + texto explícito
-## 📄 Licencia
+# 📤 Exportación
+
+Los resultados pueden descargarse en:
+
+- 📥 CSV
+- 📄 Word (.docx)
+
+---
+
+# ⚙️ Funcionalidades avanzadas
+
+- Ranking ponderado mediante pesos personalizados.
+- Categorías personalizadas mediante JSON.
+- Caché automática para acelerar comparaciones repetidas.
+- Limpieza manual de la caché.
+- Historial de comparaciones durante la sesión.
+- Detección automática del idioma.
+- Extracción de múltiples especificaciones por producto.
+- Normalización automática de puntuaciones.
+
+---
+
+# 📄 Licencia
 
 Este proyecto se distribuye bajo una **licencia propietaria con acceso al código (source-available)**.
 
@@ -79,5 +191,7 @@ El código fuente se pone a disposición únicamente para fines de **visualizaci
 
 Se proporciona una traducción al español en `LICENSE_ES.md` únicamente con fines informativos. En caso de discrepancia, prevalece la versión en inglés.
 
-## Autor
+---
+
+# Autor
 Kevin-2099
