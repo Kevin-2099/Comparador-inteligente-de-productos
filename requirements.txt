@@ -1,3 +1,6 @@
 gradio
 pandas
 langdetect
+matplotlib
+python-docx
+pypdf
